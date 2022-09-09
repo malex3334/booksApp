@@ -1,6 +1,6 @@
-import SearchFrom from "./SearchFrom";
-import BookList from "./BookList";
-import Library from "./Library";
+import SearchFrom from "./components/SearchFrom";
+import BookList from "./components/BookList";
+import Library from "./pages/Library";
 import { useState } from "react";
 
 function App() {

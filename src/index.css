@@ -3,6 +3,20 @@
   list-style: none;
 }
 
+h3 {
+  margin: 0.5em;
+  font-size: 21px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0.5em;
+}
+
 .fav {
   background-color: rgb(216, 255, 156);
 }
@@ -13,7 +27,43 @@ button {
   cursor: pointer;
 }
 
+.books-list {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.no-cover {
+  width: 128px;
+  height: 188px;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.read-more {
+  display: block;
+  margin: 0 2.5em 0 auto;
+}
+
+.book-card {
+  width: 400px;
+  position: relative;
+  margin: 0;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .icn {
-  font-size: 30px;
+  font-size: 40px;
   color: red;
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
 }

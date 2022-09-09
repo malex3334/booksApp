@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import { useGlobalContext } from "./context";
+import { useGlobalContext } from "../context";
 
 export default function BookCard({ book, index }) {
   const [showDescription, setShowDescription] = useState(false);
@@ -18,6 +18,7 @@ export default function BookCard({ book, index }) {
           )}
           {book.volumeInfo.description.length > 200 && (
             <button
+              className="read-more"
               onClick={(e) => {
                 setShowDescription(!showDescription);
               }}
@@ -32,20 +33,24 @@ export default function BookCard({ book, index }) {
 
   return (
     <li
-      className={`${book.library && "fav"}`}
-      style={{ border: "2px solid black" }}
+      className={`book-card ${book.library && "fav"}`}
+      style={{ border: "1px solid grey" }}
       key={book.id}
     >
       {/* TITLE */}
-
-      <img
-        src={volumeInfo.imageLinks && volumeInfo.imageLinks.smallThumbnail}
-        alt={volumeInfo.title}
-      />
+      {console.log(volumeInfo.imageLinks)}
+      {volumeInfo.imageLinks === undefined ? (
+        <p className="no-cover">No cover</p>
+      ) : (
+        <img
+          src={volumeInfo.imageLinks && volumeInfo.imageLinks.smallThumbnail}
+          alt={volumeInfo.title}
+        />
+      )}
       <h3>{volumeInfo.title}</h3>
 
       {/* AUTHOR */}
-      <p>{volumeInfo.authors}</p>
+      <p>Authors:{volumeInfo.authors}</p>
       <p>Published: {volumeInfo.publishedDate}</p>
       {/* DESCRIPTION */}
       {description()}

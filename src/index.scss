@@ -106,6 +106,11 @@ button {
   justify-content: center;
   gap: 1rem;
 
+  h3 {
+    margin-top: 1em;
+    margin-bottom: 0;
+  }
+
   // .fav {
   //   // background: $bg-card !important;
   //   border: 5px solid $bg-card;
@@ -138,11 +143,17 @@ button {
   }
 
   .read-more {
-    display: block;
-    margin: 0 2.5em 0 auto;
-    border: 1px solid black;
-    border-radius: $radius-secondary;
+    color: blue;
+    cursor: pointer;
+    // display: block;
+    // margin: 0 2.5em 0 auto;
+    // border: 1px solid black;
+    // border-radius: $radius-secondary;
     padding: 0.5em;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .book-card {
@@ -165,13 +176,21 @@ button {
     }
 
     .authors {
-      font-size: $font-size-tertiary;
+      font-size: $font-size-secondary;
       color: $color-secondary;
     }
 
     .published {
+      font-size: $font-size-tertiary;
       color: $color-tertiary;
     }
+    .description {
+      line-height: 1.5;
+    }
+  }
+
+  .like-btn {
+    transition: all 1s ease-in-out;
   }
 
   .icn {
@@ -180,6 +199,15 @@ button {
     position: absolute;
     top: 0.5em;
     right: 0.5em;
+    transform: scale 0.4s ease-in-out;
+
+    &:hover {
+      scale: 1.1;
+    }
+
+    &:active {
+      scale: 0.9;
+    }
   }
 
   .no-description {
@@ -192,12 +220,35 @@ button {
     text-align: center;
   }
 }
-// .library-list {
-//   margin: 0 auto;
-//   display: flex;
-//   gap: 5rem;
-//   width: 80%;
-// }
+
+.icn-animation {
+  animation: like 0.3s ease-in;
+
+  &:active {
+    scale: 0.9;
+  }
+}
+
+// ### LIKE ANIMATION
+
+@keyframes like {
+  0% {
+    color: transparent;
+    rotate: 45deg;
+  }
+  25% {
+    rotate: -45deg;
+  }
+
+  50% {
+    rotate: 45deg;
+  }
+
+  100% {
+    color: red;
+    rotate: -45deg;
+  }
+}
 
 // ### LOADER
 .loader-container {

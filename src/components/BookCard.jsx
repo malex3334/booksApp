@@ -12,19 +12,29 @@ export default function BookCard({ book, index }) {
       return (
         <div>
           {showDescription ? (
-            <p>{book.volumeInfo.description}</p>
+            <p className="description">
+              {book.volumeInfo.description}
+              <span
+                className="read-more"
+                onClick={(e) => {
+                  setShowDescription(!showDescription);
+                }}
+              >
+                {!showDescription ? "show more" : "show less"}
+              </span>
+            </p>
           ) : (
-            <p>{book.volumeInfo.description.slice(0, 200)}</p>
-          )}
-          {book.volumeInfo.description.length > 200 && (
-            <button
-              className="read-more"
-              onClick={(e) => {
-                setShowDescription(!showDescription);
-              }}
-            >
-              {!showDescription ? "Read more" : "Read less"}
-            </button>
+            <p className="description">
+              {book.volumeInfo.description.slice(0, 200) + "..."}
+              <span
+                className="read-more"
+                onClick={(e) => {
+                  setShowDescription(!showDescription);
+                }}
+              >
+                {!showDescription ? "show more" : "show less"}
+              </span>
+            </p>
           )}
         </div>
       );
@@ -48,20 +58,45 @@ export default function BookCard({ book, index }) {
       <h3>{volumeInfo.title}</h3>
 
       {/* AUTHOR */}
-      <p className="authors">{volumeInfo.authors}</p>
+      <p className="authors">
+        {volumeInfo.authors !== undefined && volumeInfo.authors.length > 1 ? (
+          volumeInfo.authors.map((author) => {
+            return <span>{author} </span>;
+          })
+        ) : (
+          <span>{volumeInfo.authors !== undefined && volumeInfo.authors}</span>
+        )}
+      </p>
       <p className="published">Published: {volumeInfo.publishedDate}</p>
       {/* DESCRIPTION */}
       {description()}
 
       {/* library */}
-      <div>
+      {/* <div className="like-btn">
+        {book.library ? (
+          <AiFillHeart
+            onClick={(e) => {
+              handleRemoveFromLib(book);
+            }}
+            className="icn"
+          />
+        ) : (
+          <AiOutlineHeart
+            onClick={(e) => {
+              handleAddToLib(book);
+            }}
+            className="icn"
+          />
+        )}
+      </div> */}
+      <div className="like-btn">
         {book.library ? (
           <button
             onClick={(e) => {
               handleRemoveFromLib(book);
             }}
           >
-            <AiFillHeart className="icn" />
+            <AiFillHeart className="icn icn-animation" />
           </button>
         ) : (
           <button
@@ -69,7 +104,7 @@ export default function BookCard({ book, index }) {
               handleAddToLib(book);
             }}
           >
-            <AiOutlineHeart className="icn" />
+            <AiOutlineHeart className="icn " />
           </button>
         )}
       </div>

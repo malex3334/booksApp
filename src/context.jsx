@@ -4,7 +4,10 @@ const url = "https://www.googleapis.com/books/v1/volumes?q=";
 const maxResults = "40";
 
 const getLibrary = () => {
-  if (localStorage.getItem("library") !== "undefined") {
+  if (
+    localStorage.getItem("library") &&
+    localStorage.getItem("library") !== "undefined"
+  ) {
     const library = localStorage.getItem("library");
     return JSON.parse(library);
   } else return [];

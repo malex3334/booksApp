@@ -1,0 +1,109 @@
+$color-primary: rgb(0, 0, 0);
+$color-secondary: rgb(40, 40, 40);
+$color-tertiary: rgb(85, 85, 85);
+
+$bg-primary: rgb(11, 225, 0);
+
+$font-size-primary: 26px;
+$font-size-secondary: 21px;
+$font-size-tertiary: 16px;
+
+$radius-primary: 12px;
+
+* {
+  box-sizing: border-box;
+  list-style: none;
+}
+
+h3 {
+  margin: 0.5em;
+  font-size: 21px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0.5em;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+
+  button {
+    color: $color-primary;
+    border-radius: $radius-primary;
+    padding: 0.5em;
+  }
+
+  input {
+    padding: 0.5em;
+    color: $color-primary;
+    border-radius: $radius-primary;
+  }
+}
+
+.books-list {
+  color: $color-primary;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+
+  .fav {
+    background-color: rgb(216, 255, 156);
+  }
+
+  button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .no-cover {
+    width: 128px;
+    height: 188px;
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .thumb-image {
+    width: 128px;
+    height: 188px;
+  }
+
+  .read-more {
+    display: block;
+    margin: 0 2.5em 0 auto;
+  }
+
+  .book-card {
+    width: 400px;
+    position: relative;
+    margin: 0;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .icn {
+    font-size: 40px;
+    color: red;
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+  }
+}

@@ -47,7 +47,7 @@ export default function BookCard({ book, index }) {
       <h3>{volumeInfo.title}</h3>
 
       {/* AUTHOR */}
-      <p>Authors:{volumeInfo.authors}</p>
+      <p>{volumeInfo.authors}</p>
       <p>Published: {volumeInfo.publishedDate}</p>
       {/* DESCRIPTION */}
       {description()}

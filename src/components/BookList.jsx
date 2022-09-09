@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { useGlobalContext } from "../context";
 
 import BookCard from "./BookCard";
+import Loader from "./Loader";
 
 export default function BookList() {
   const { data, loading, showMyLib } = useGlobalContext();
@@ -47,6 +48,6 @@ export default function BookList() {
       </div>
     );
   } else {
-    return <h2>loading...</h2>;
+    return <Loader />;
   }
 }

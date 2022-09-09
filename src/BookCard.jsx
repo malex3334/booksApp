@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useGlobalContext } from "./context";
 
 export default function BookCard({ book }) {
@@ -31,7 +32,7 @@ export default function BookCard({ book }) {
 
   return (
     <li
-      className={`${book.library === "true" && "fav"}`}
+      className={`${book.library && "fav"}`}
       style={{ border: "2px solid black" }}
       key={book.id}
     >
@@ -51,13 +52,13 @@ export default function BookCard({ book }) {
 
       {/* library */}
       <div>
-        {book.library === "true" ? (
+        {book.library ? (
           <button
             onClick={(e) => {
               handleRemoveFromLib(book);
             }}
           >
-            Remove lib
+            <AiFillHeart className="icn" />
           </button>
         ) : (
           <button
@@ -65,7 +66,7 @@ export default function BookCard({ book }) {
               handleAddToLib(book);
             }}
           >
-            add to Lib
+            <AiOutlineHeart className="icn" />
           </button>
         )}
       </div>

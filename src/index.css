@@ -6,3 +6,14 @@
 .fav {
   background-color: rgb(216, 255, 156);
 }
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.icn {
+  font-size: 30px;
+  color: red;
+}

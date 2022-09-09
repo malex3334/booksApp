@@ -8,6 +8,7 @@ export default function SearchFrom() {
     <form onSubmit={(e) => handleSubmit(e)}>
       <label>Search books:</label>
       <input
+        required
         type="text"
         placeholder="search..."
         value={searchValue}

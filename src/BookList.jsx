@@ -1,21 +1,11 @@
 import React from "react";
-import { useState } from "react";
+
 import { useGlobalContext } from "./context";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+
 import BookCard from "./BookCard";
 
 export default function BookList() {
-  const { data, loading, userId, showMyLib, handleAddToLib } =
-    useGlobalContext();
-  console.log(data);
-
-  if (userId) {
-    // setData();
-  }
-
-  const handleClick = (e) => {
-    console.log(e);
-  };
+  const { data, loading, showMyLib } = useGlobalContext();
 
   if (!loading) {
     return (

@@ -1,10 +1,11 @@
-import { gapi } from "gapi-script";
 import React, { useState, useEffect, useContext } from "react";
 
 const url = "https://www.googleapis.com/books/v1/volumes?q=";
-const apiKey = "AIzaSyAJHG4L-BIzTSK16ng9k0hrqqRE5zCFlQY";
-const clientId =
-  "936567552576-ounaih4ptgsqpclg0tf8au8ibai59qhd.apps.googleusercontent.com";
+
+const getLibrary = () => {
+  const library = localStorage.getItem("library");
+  return JSON.parse(library);
+};
 
 const AppContext = React.createContext();
 
@@ -13,9 +14,7 @@ const AppProvider = ({ children }) => {
   const [searchValue, setSearchValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [userId, setUserId] = useState();
-  const [library, setLibrary] = useState([]);
-
-  // const { data, error, loadingl } = useFetch("");
+  const [library, setLibrary] = useState(getLibrary());
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,23 +35,36 @@ const AppProvider = ({ children }) => {
     try {
       const response = await fetch(`${url}+${searchValue}`);
       const data = await response.json();
-
+      // filter if in library
       const checkLib = await data.items.map((item) => {
         const filtr = library.find((element) => element.id === item.id);
         if (filtr) {
-          return { ...item, library: "true" };
-        } else return { ...item, library: "false" };
+          return { ...item, library: true };
+        } else return { ...item, library: false };
       });
-
       setData(checkLib);
+
+      // setData(data.items);
       setLoading(false);
     } catch (error) {
       setLoading(false);
       console.log(error);
     }
   };
+
   useEffect(() => {
-    fetchBooks();
+    // filter if in library
+    const checkLib = data?.map((item) => {
+      const filtr = library.find((element) => element.id === item.id);
+      if (filtr) {
+        return { ...item, library: true };
+      } else return { ...item, library: false };
+    });
+    setData(checkLib);
+  }, [library]);
+
+  useEffect(() => {
+    localStorage.setItem("library", JSON.stringify(library));
   }, [library]);
 
   return (
@@ -68,7 +80,6 @@ const AppProvider = ({ children }) => {
         userId,
         setUserId,
         library,
-
         setLibrary,
         handleAddToLib,
         handleRemoveFromLib,

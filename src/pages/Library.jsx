@@ -6,15 +6,15 @@ export default function Library() {
   const { library } = useGlobalContext();
   return (
     <div>
-      <h2>Your Books: </h2>
+      {/* <h2>Your Books: </h2> */}
       {library?.length > 0 ? (
-        <ul>
+        <ul className="books-list">
           {library.map((book) => {
             return <BookCard book={book} key={book.id} />;
           })}
         </ul>
       ) : (
-        <h3>No books to show</h3>
+        <h3 className="no-list">No books to show</h3>
       )}
     </div>
   );

@@ -11,9 +11,15 @@ function App() {
         <h1>
           Bookshelf <span className="title-icn">📚</span>
         </h1>
+        <div className="underline"></div>
       </header>
       <nav>
-        <h2 onClick={() => setShowLibrary(!showLibrary)}>My Library</h2>
+        <h2
+          style={{ cursor: "pointer" }}
+          onClick={() => setShowLibrary(!showLibrary)}
+        >
+          My Library
+        </h2>
         {showLibrary && <Library />}
       </nav>
       <div>

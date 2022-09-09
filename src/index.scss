@@ -26,7 +26,8 @@ $transition-main: all 0.3s ease-in;
 h1 {
   text-align: center;
   font-size: $font-size-title;
-  margin: 1.5em;
+  // margin: 1.5em;
+  margin: 1.5em 0 0.25em 0;
 }
 
 h2 {
@@ -37,6 +38,7 @@ h2 {
 h3 {
   margin: 0.5em;
   font-size: 21px;
+  text-align: center;
 }
 
 ul {
@@ -52,6 +54,16 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+// utils
+
+.underline {
+  margin: 0 auto;
+  width: 8em;
+  height: 5px;
+  background-color: $bg-primary;
+  margin-bottom: 5em;
 }
 
 .search-form {
@@ -84,6 +96,7 @@ button {
 .books-list {
   color: $color-primary;
   margin: 0 auto;
+  margin-bottom: 5rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -152,11 +165,18 @@ button {
   .no-description {
     color: $color-secondary;
   }
-}
 
-.no-list {
-  color: $color-secondary;
+  .no-list {
+    color: $color-secondary;
+    text-align: center;
+  }
 }
+// .library-list {
+//   margin: 0 auto;
+//   display: flex;
+//   gap: 5rem;
+//   width: 80%;
+// }
 
 // ### LOADER
 .loader-container {

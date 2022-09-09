@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 
 const url = "https://www.googleapis.com/books/v1/volumes?q=";
-const maxResults = "15";
+const maxResults = "40";
 
 const getLibrary = () => {
   if (localStorage.getItem("library") !== "undefined") {
@@ -18,7 +18,6 @@ const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [userId, setUserId] = useState();
   const [library, setLibrary] = useState(getLibrary());
-  const [resultsQ, setResultsQ] = useState("15");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,6 +36,7 @@ const AppProvider = ({ children }) => {
 
   const fetchBooks = async () => {
     setLoading(true);
+
     try {
       const response = await fetch(
         `${url}+${searchValue}&maxResults=${maxResults}`
@@ -90,6 +90,7 @@ const AppProvider = ({ children }) => {
         setLibrary,
         handleAddToLib,
         handleRemoveFromLib,
+        fetchBooks,
       }}
     >
       {children}

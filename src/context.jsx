@@ -21,7 +21,7 @@ const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [userId, setUserId] = useState();
   const [library, setLibrary] = useState(getLibrary());
-
+  const [slice, setSlice] = useState(10);
   const handleSubmit = (e) => {
     e.preventDefault();
     fetchBooks();
@@ -39,7 +39,7 @@ const AppProvider = ({ children }) => {
 
   const fetchBooks = async () => {
     setLoading(true);
-
+    setSlice(8);
     try {
       const response = await fetch(
         `${url}+${searchValue}&maxResults=${maxResults}`
@@ -94,6 +94,8 @@ const AppProvider = ({ children }) => {
         handleAddToLib,
         handleRemoveFromLib,
         fetchBooks,
+        slice,
+        setSlice,
       }}
     >
       {children}

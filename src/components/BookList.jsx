@@ -6,8 +6,8 @@ import BookCard from "./BookCard";
 import Loader from "./Loader";
 
 export default function BookList() {
-  const { data, loading, showMyLib } = useGlobalContext();
-  const [slice, setSlice] = useState(5);
+  const { data, loading, showMyLib, slice, setSlice } = useGlobalContext();
+
   // const bottomRef = useRef();
   const ref = useRef();
 

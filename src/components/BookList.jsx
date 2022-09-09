@@ -28,7 +28,6 @@ export default function BookList() {
       observer.observe(ref.current);
     }
   }, [ref, loading]);
-  console.log(slice);
   if (!loading) {
     return (
       <div>

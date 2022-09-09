@@ -3,14 +3,15 @@ import { useGlobalContext } from "../context";
 import { FcSearch } from "react-icons/fc";
 
 export default function SearchFrom() {
-  const { searchValue, setSearchValue, handleSubmit } = useGlobalContext();
+  const { searchValue, setSearchValue, handleSubmit, fetchData } =
+    useGlobalContext();
 
   return (
     <form className="search-form" onSubmit={(e) => handleSubmit(e)}>
       <input
         required
         type="text"
-        placeholder="search..."
+        placeholder="search books..."
         value={searchValue}
         onChange={(e) => {
           setSearchValue(e.target.value);

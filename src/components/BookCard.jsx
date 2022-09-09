@@ -34,9 +34,10 @@ export default function BookCard({ book, index }) {
   return (
     <li className={`book-card ${book.library && "fav"}`} key={book.id}>
       {/* TITLE */}
-      {console.log(volumeInfo.imageLinks)}
       {volumeInfo.imageLinks === undefined ? (
-        <p className="no-cover">No cover</p>
+        <p className="no-cover">
+          <span>No cover</span>
+        </p>
       ) : (
         <img
           className="thumb-image"
@@ -47,8 +48,8 @@ export default function BookCard({ book, index }) {
       <h3>{volumeInfo.title}</h3>
 
       {/* AUTHOR */}
-      <p>{volumeInfo.authors}</p>
-      <p>Published: {volumeInfo.publishedDate}</p>
+      <p className="authors">{volumeInfo.authors}</p>
+      <p className="published">Published: {volumeInfo.publishedDate}</p>
       {/* DESCRIPTION */}
       {description()}
 

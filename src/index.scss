@@ -1,9 +1,11 @@
 $color-primary: rgb(0, 0, 0);
 $color-secondary: rgb(40, 40, 40);
-$color-tertiary: rgb(156, 156, 156);
+$color-tertiary: rgb(114, 114, 114);
 
 $bg-primary: rgb(11, 225, 0);
 $bg-secondary: #ffff;
+$bg-no-cover: linear-gradient(to right, rgb(56, 56, 56), grey);
+$bg-card: rgb(11, 225, 0, 0.8);
 
 $font-size-title: 36px;
 $font-size-primary: 26px;
@@ -33,10 +35,12 @@ h1 {
 h2 {
   text-align: center;
   font-weight: 100;
+  margin-top: 2rem;
 }
 
 h3 {
   margin: 0.5em;
+  margin-top: 4rem;
   font-size: 21px;
   text-align: center;
 }
@@ -102,9 +106,10 @@ button {
   justify-content: center;
   gap: 1rem;
 
-  .fav {
-    background-color: rgb(216, 255, 156);
-  }
+  // .fav {
+  //   // background: $bg-card !important;
+  //   border: 5px solid $bg-card;
+  // }
 
   button {
     background: transparent;
@@ -115,10 +120,16 @@ button {
   .no-cover {
     width: 128px;
     height: 188px;
-    background-color: grey;
+    background: $bg-no-cover;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    span {
+      font-size: $font-size-secondary;
+      color: $color-tertiary;
+      rotate: 45deg;
+    }
   }
 
   .thumb-image {
@@ -152,6 +163,15 @@ button {
       scale: 1.01;
       z-index: 55;
     }
+
+    .authors {
+      font-size: $font-size-tertiary;
+      color: $color-secondary;
+    }
+
+    .published {
+      color: $color-tertiary;
+    }
   }
 
   .icn {
@@ -164,6 +184,7 @@ button {
 
   .no-description {
     color: $color-secondary;
+    font-style: italic;
   }
 
   .no-list {
@@ -180,8 +201,8 @@ button {
 
 // ### LOADER
 .loader-container {
-  font-size: $font-size-primary;
-  height: 100vh;
+  font-size: $font-size-secondary;
+  height: 80vh;
   // background-color: $bg-primary;
   width: 100%;
   display: flex;

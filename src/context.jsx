@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 
 const url = "https://www.googleapis.com/books/v1/volumes?q=";
+const maxResults = "15";
 
 const getLibrary = () => {
-  const library = localStorage.getItem("library");
-  return JSON.parse(library);
+  if (localStorage.getItem("library") !== "undefined") {
+    const library = localStorage.getItem("library");
+    return JSON.parse(library);
+  } else return [];
 };
 
 const AppContext = React.createContext();
@@ -15,6 +18,7 @@ const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [userId, setUserId] = useState();
   const [library, setLibrary] = useState(getLibrary());
+  const [resultsQ, setResultsQ] = useState("15");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +26,8 @@ const AppProvider = ({ children }) => {
   };
 
   const handleAddToLib = (e) => {
-    setLibrary((prev) => [...prev, e]);
+    const newPosition = { ...e, library: true };
+    setLibrary((prev) => [...prev, newPosition]);
   };
 
   const handleRemoveFromLib = (e) => {
@@ -33,11 +38,13 @@ const AppProvider = ({ children }) => {
   const fetchBooks = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${url}+${searchValue}`);
+      const response = await fetch(
+        `${url}+${searchValue}&maxResults=${maxResults}`
+      );
       const data = await response.json();
       // filter if in library
       const checkLib = await data.items.map((item) => {
-        const filtr = library.find((element) => element.id === item.id);
+        const filtr = library?.find((element) => element.id === item.id);
         if (filtr) {
           return { ...item, library: true };
         } else return { ...item, library: false };

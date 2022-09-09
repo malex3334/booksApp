@@ -13,8 +13,8 @@ export default function BookList() {
         <h2 onClick={showMyLib}>Results: </h2>
         {data?.length > 0 ? (
           <ul>
-            {data.map((book) => {
-              return <BookCard book={book} key={book.id} />;
+            {data.map((book, index) => {
+              return <BookCard book={book} index={index} key={book.id} />;
             })}
           </ul>
         ) : (

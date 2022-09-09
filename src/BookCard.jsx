@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useGlobalContext } from "./context";
 
-export default function BookCard({ book }) {
+export default function BookCard({ book, index }) {
   const [showDescription, setShowDescription] = useState(false);
   const { handleAddToLib, handleRemoveFromLib } = useGlobalContext();
   const { volumeInfo } = book;
@@ -43,7 +43,7 @@ export default function BookCard({ book }) {
         alt={volumeInfo.title}
       />
       <h3>{volumeInfo.title}</h3>
-      {/* PIC */}
+
       {/* AUTHOR */}
       <p>{volumeInfo.authors}</p>
       <p>Published: {volumeInfo.publishedDate}</p>

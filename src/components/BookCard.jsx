@@ -43,6 +43,7 @@ export default function BookCard({ book, index }) {
         <p className="no-cover">No cover</p>
       ) : (
         <img
+          className="thumb-image"
           src={volumeInfo.imageLinks && volumeInfo.imageLinks.smallThumbnail}
           alt={volumeInfo.title}
         />

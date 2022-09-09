@@ -6,16 +6,21 @@ import { useState } from "react";
 function App() {
   const [showLibrary, setShowLibrary] = useState(false);
   return (
-    <div>
-      <div>
-        <h2 onClick={() => setShowLibrary(!showLibrary)}>library</h2>
+    <main>
+      <header>
+        <h1>
+          Bookshelf <span className="title-icn">📚</span>
+        </h1>
+      </header>
+      <nav>
+        <h2 onClick={() => setShowLibrary(!showLibrary)}>My Library</h2>
         {showLibrary && <Library />}
-      </div>
+      </nav>
       <div>
         <SearchFrom />
         <BookList />
       </div>
-    </div>
+    </main>
   );
 }
 

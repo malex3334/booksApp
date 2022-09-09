@@ -1,18 +1,32 @@
 $color-primary: rgb(0, 0, 0);
 $color-secondary: rgb(40, 40, 40);
-$color-tertiary: rgb(85, 85, 85);
+$color-tertiary: rgb(156, 156, 156);
 
 $bg-primary: rgb(11, 225, 0);
+$bg-secondary: #ffff;
 
+$font-size-title: 36px;
 $font-size-primary: 26px;
 $font-size-secondary: 21px;
 $font-size-tertiary: 16px;
 
 $radius-primary: 12px;
+$radius-secondary: 6px;
+
+$shadow-sm: 1px 1px 6px rgba(0, 0, 0, 0.5);
+
+$transition-main: all 0.3s ease-in;
 
 * {
   box-sizing: border-box;
   list-style: none;
+  font-family: "Robot", sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: $font-size-title;
+  margin: 1.5em;
 }
 
 h3 {
@@ -32,11 +46,13 @@ p {
 button {
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .search-form {
   display: flex;
   justify-content: center;
+  align-items: center;
 
   button {
     color: $color-primary;
@@ -45,9 +61,16 @@ button {
   }
 
   input {
+    width: 50%;
+    font-size: $font-size-tertiary;
     padding: 0.5em;
     color: $color-primary;
     border-radius: $radius-primary;
+  }
+  .icn {
+    font-size: 30px;
+    color: red;
+    padding: 0;
   }
 }
 
@@ -86,9 +109,13 @@ button {
   .read-more {
     display: block;
     margin: 0 2.5em 0 auto;
+    border: 1px solid black;
+    border-radius: $radius-secondary;
+    padding: 0.5em;
   }
 
   .book-card {
+    background: $bg-secondary;
     width: 400px;
     position: relative;
     margin: 0;
@@ -97,6 +124,14 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    border-radius: $radius-primary;
+    box-shadow: $shadow-sm;
+    transition: $transition-main;
+
+    &:hover {
+      scale: 1.01;
+      z-index: 55;
+    }
   }
 
   .icn {
@@ -106,4 +141,12 @@ button {
     top: 0.5em;
     right: 0.5em;
   }
+
+  .no-description {
+    color: $color-secondary;
+  }
+}
+
+.no-list {
+  color: $color-secondary;
 }

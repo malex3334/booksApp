@@ -28,15 +28,11 @@ export default function BookCard({ book, index }) {
           )}
         </div>
       );
-    } else return <p>no descripton</p>;
+    } else return <p className="no-description">no descripton</p>;
   };
 
   return (
-    <li
-      className={`book-card ${book.library && "fav"}`}
-      style={{ border: "1px solid grey" }}
-      key={book.id}
-    >
+    <li className={`book-card ${book.library && "fav"}`} key={book.id}>
       {/* TITLE */}
       {console.log(volumeInfo.imageLinks)}
       {volumeInfo.imageLinks === undefined ? (

@@ -39,7 +39,7 @@ export default function BookList() {
             })}
           </ul>
         ) : (
-          <h3>No books to show</h3>
+          <h3 className="no-list">No books to show</h3>
         )}
         <span style={{ opacity: "0" }} ref={ref}>
           1

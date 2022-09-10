@@ -53,6 +53,7 @@ export default function BookCard({ book, index }) {
         </p>
       ) : (
         <img
+          onClick={() => setShowDetails(true)}
           className="thumb-image"
           src={volumeInfo.imageLinks && volumeInfo.imageLinks.smallThumbnail}
           alt={volumeInfo.title}

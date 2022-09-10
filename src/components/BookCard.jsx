@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useGlobalContext } from "../context";
+import Modal from "./Modal";
+import DetailsCard from "./DetailsCard";
 
 export default function BookCard({ book, index }) {
   const [showDescription, setShowDescription] = useState(false);
   const { handleAddToLib, handleRemoveFromLib } = useGlobalContext();
   const { volumeInfo } = book;
+  const [showDetails, setShowDetails] = useState(false);
 
   const description = () => {
     if (book.volumeInfo.description) {
@@ -70,25 +73,6 @@ export default function BookCard({ book, index }) {
       <p className="published">Published: {volumeInfo.publishedDate}</p>
       {/* DESCRIPTION */}
       {description()}
-
-      {/* library */}
-      {/* <div className="like-btn">
-        {book.library ? (
-          <AiFillHeart
-            onClick={(e) => {
-              handleRemoveFromLib(book);
-            }}
-            className="icn"
-          />
-        ) : (
-          <AiOutlineHeart
-            onClick={(e) => {
-              handleAddToLib(book);
-            }}
-            className="icn"
-          />
-        )}
-      </div> */}
       <div className="like-btn">
         {book.library ? (
           <button
@@ -108,6 +92,18 @@ export default function BookCard({ book, index }) {
           </button>
         )}
       </div>
+      <button className="show-details" onClick={() => setShowDetails(true)}>
+        Show details
+      </button>
+      <Modal
+        className="modal-container"
+        showModal={showDetails}
+        setShowModal={setShowDetails}
+        title={volumeInfo.title}
+        authors={volumeInfo.authors}
+      >
+        <DetailsCard book={book} />
+      </Modal>
     </li>
   );
 }

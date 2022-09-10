@@ -4,6 +4,8 @@ import Library from "./pages/Library";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 
 function App() {
+  const activeStyle = "nav-link active";
+
   return (
     <BrowserRouter>
       <main>
@@ -16,16 +18,28 @@ function App() {
         <nav>
           <ul>
             <li>
-              <NavLink className="nav-link" to="/">
-                BookList
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? activeStyle : "nav-link"
+                }
+                // className="nav-link"
+                to="/"
+              >
+                Search books
+                <div className="underline"></div>
               </NavLink>
-              <div className="underline"></div>
             </li>
             <li>
-              <NavLink className="nav-link" to="/library">
-                Library
+              <NavLink
+                // className="nav-link"
+                className={({ isActive }) =>
+                  isActive ? activeStyle : "nav-link"
+                }
+                to="/library"
+              >
+                My Library
+                <div className="underline"></div>
               </NavLink>
-              <div className="underline"></div>
             </li>
           </ul>
         </nav>

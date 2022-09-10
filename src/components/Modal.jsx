@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { AiOutlineClose } from "react-icons/ai";
 
 export default function Modal({
   showModal,
@@ -22,11 +23,9 @@ export default function Modal({
         }}
       >
         <main className="modal">
-          <header>
-            <h2>{title}</h2>
-            <p>{authors}</p>
-            <button onClick={() => setShowModal(false)}>x</button>
-          </header>
+          <button onClick={() => setShowModal(false)}>
+            <AiOutlineClose />
+          </button>
           <div>{children}</div>
         </main>
       </div>,

@@ -295,7 +295,7 @@ nav {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
-  height: 90%;
+  max-height: 90%;
   background: white;
   z-index: 99;
   overflow: auto;

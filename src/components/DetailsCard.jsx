@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 const DetailsCard = ({ book }) => {
   const [side, setSide] = useState(1);
-
   const {
     title,
     authors,
@@ -63,7 +62,10 @@ const DetailsCard = ({ book }) => {
       <div className="modal-body" onClick={() => setSide(1)}>
         <img
           className="modal-full-img"
-          src={imageLinks && imageLinks.thumbnail}
+          src={
+            imageLinks &&
+            `https://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api`
+          }
           alt=""
         />
       </div>

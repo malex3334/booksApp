@@ -55,7 +55,10 @@ export default function BookCard({ book, index }) {
         <img
           onClick={() => setShowDetails(true)}
           className="thumb-image"
-          src={volumeInfo.imageLinks && volumeInfo.imageLinks.smallThumbnail}
+          src={
+            volumeInfo.imageLinks &&
+            `https://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api`
+          }
           alt={volumeInfo.title}
         />
       )}
@@ -103,7 +106,7 @@ export default function BookCard({ book, index }) {
         title={volumeInfo.title}
         authors={volumeInfo.authors}
       >
-        <DetailsCard book={book} />
+        <DetailsCard key={book.id} book={book} />
       </Modal>
     </li>
   );

@@ -44,7 +44,7 @@ const AppProvider = ({ children }) => {
     setSlice(8);
     try {
       const response = await fetch(
-        `${url}+${searchValue}&maxResults=${maxResults}`
+        `${url}+${searchValue}&maxResults=${maxResults}&key=AIzaSyAJHG4L-BIzTSK16ng9k0hrqqRE5zCFlQY`
       );
       const data = await response.json();
       // filter if in library

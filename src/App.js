@@ -11,8 +11,9 @@ function App() {
       <main>
         <header>
           <h1>
-            Bookshelf <span className="title-icn">📚</span>
+            BookShelf <span className="title-icn">📚</span>
           </h1>
+
           <div className="underline"></div>
         </header>
         <nav>

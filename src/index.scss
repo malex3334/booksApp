@@ -19,6 +19,8 @@ $shadow-sm: 1px 1px 6px rgba(0, 0, 0, 0.5);
 
 $transition-main: all 0.3s ease-in;
 
+$underline-width: 3em;
+
 * {
   box-sizing: border-box;
   list-style: none;
@@ -67,7 +69,7 @@ nav {
   .underline {
     opacity: 0;
     margin: 0.25em auto;
-    width: 5em;
+    width: $underline-width;
     height: 5px;
     background-color: $bg-primary;
   }
@@ -87,6 +89,7 @@ nav {
 
     &.active > div {
       opacity: 1 !important;
+      animation: underline 0.2s ease-in-out;
     }
   }
 }
@@ -326,5 +329,14 @@ nav {
   }
   100% {
     content: "...";
+  }
+}
+
+@keyframes underline {
+  from {
+    width: 0;
+  }
+  to {
+    width: $underline-width;
   }
 }

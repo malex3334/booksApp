@@ -24,19 +24,19 @@ const DetailsCard = ({ book }) => {
             src={imageLinks && imageLinks.thumbnail}
             alt=""
           />
+          <header>
+            <h2>{title}</h2>
+            {authors &&
+              authors.map((author) => {
+                return <p className="author">{author} </p>;
+              })}
+            <p>Published: {publishedDate}</p>
+            <p className="pages">Pages: {pageCount}</p>
+            <p className="publisher">Publisher: {publisher}</p>
+            <p className="publisher">Language: {language}</p>
+          </header>
         </div>
-        <header>
-          <h2>{title}</h2>
-          {authors &&
-            authors.map((author) => {
-              return <p className="author">{author} </p>;
-            })}
-          <p>Published: {publishedDate}</p>
-          <p className="pages">Pages: {pageCount}</p>
-        </header>
-
-        <p className="publisher">Publisher: {publisher}</p>
-        <p className="publisher">Language: {language}</p>
+        <div className="details-container"></div>
         <p className="description">{description}</p>
         {industryIdentifiers &&
           industryIdentifiers.map((id) => {

@@ -333,6 +333,10 @@ nav {
     font-size: $font-size-tertiary;
     color: $color-secondary;
   }
+
+  .details-container {
+    margin-top: 1em;
+  }
   .description {
     font-size: $font-size-tertiary;
     margin: 1em 0;
@@ -355,11 +359,13 @@ nav {
   .modal-img-container {
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .modal-img {
     width: 50%;
+    height: 50%;
   }
 
   .modal-full-img {
@@ -485,25 +491,32 @@ nav {
     border-radius: $radius-primary;
 
     header {
-      margin: 1em 0;
+      margin: 0 0 1em 0;
       padding: 0;
 
       h2 {
+        margin-top: 0;
         font-size: $font-size-title;
       }
     }
 
     .modal-img-container {
-      display: flex;
-      justify-content: center;
+      flex-direction: row;
+      gap: 2em;
+      justify-content: flex-start;
+      align-items: flex-start;
+      border-bottom: 1px solid $bg-primary;
+      padding-bottom: 1.5em;
     }
 
     .modal-img {
-      width: 30%;
+      max-width: 200px;
     }
 
     .modal-full-img {
-      width: 100%;
+      display: block;
+      margin: 0 auto;
+      width: 50%;
     }
   }
 }

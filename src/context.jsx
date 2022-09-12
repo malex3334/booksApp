@@ -22,7 +22,6 @@ const AppProvider = ({ children }) => {
   const [userId, setUserId] = useState();
   const [library, setLibrary] = useState(getLibrary());
   const [slice, setSlice] = useState(10);
-  const [showDetails, setShowDetails] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();

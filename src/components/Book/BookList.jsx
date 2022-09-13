@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from "react";
 
-import { useGlobalContext } from "../context";
+import { useGlobalContext } from "../../context";
 
 import BookCard from "./BookCard";
-import Loader from "./Loader";
+import Loader from "../Loader";
 
 export default function BookList() {
   const { data, loading, showMyLib, slice, setSlice } = useGlobalContext();

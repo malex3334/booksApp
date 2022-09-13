@@ -1,6 +1,6 @@
 import React from "react";
 import { useGlobalContext } from "../context";
-import BookCard from "../components/BookCard";
+import BookCard from "../components/Book/BookCard";
 
 export default function Library() {
   const { library } = useGlobalContext();

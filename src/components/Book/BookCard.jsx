@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import { useGlobalContext } from "../context";
-import Modal from "./Modal";
+import { useGlobalContext } from "../../context";
+import Modal from "../Modal";
 import DetailsCard from "./DetailsCard";
 
 export default function BookCard({ book, index }) {

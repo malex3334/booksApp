@@ -8,7 +8,6 @@ import Loader from "./Loader";
 export default function BookList() {
   const { data, loading, showMyLib, slice, setSlice } = useGlobalContext();
 
-  // const bottomRef = useRef();
   const ref = useRef();
 
   useEffect(() => {

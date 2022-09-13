@@ -27,8 +27,12 @@ const DetailsCard = ({ book }) => {
           <header>
             <h2>{title}</h2>
             {authors &&
-              authors.map((author) => {
-                return <p className="author">{author} </p>;
+              authors.map((author, index) => {
+                return (
+                  <p key={index} className="author">
+                    {author}{" "}
+                  </p>
+                );
               })}
             <p>Published: {publishedDate}</p>
             <p className="pages">Pages: {pageCount}</p>
@@ -39,9 +43,9 @@ const DetailsCard = ({ book }) => {
         <div className="details-container"></div>
         <p className="description">{description}</p>
         {industryIdentifiers &&
-          industryIdentifiers.map((id) => {
+          industryIdentifiers.map((id, index) => {
             return (
-              <p className="isbn">
+              <p key={index} className="isbn">
                 {id.type}:{id.identifier}
               </p>
             );
@@ -49,9 +53,11 @@ const DetailsCard = ({ book }) => {
         <p>Categories:</p>
         <div className="categories">
           {categories &&
-            categories.map((category) => {
+            categories.map((category, index) => {
               return (
-                <span className="category">{category.toLowerCase()} </span>
+                <span key={index} className="category">
+                  {category.toLowerCase()}{" "}
+                </span>
               );
             })}
         </div>

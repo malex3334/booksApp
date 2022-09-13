@@ -103,8 +103,6 @@ export default function BookCard({ book, index }) {
         className="modal-container"
         showModal={showDetails}
         setShowModal={setShowDetails}
-        title={volumeInfo.title}
-        authors={volumeInfo.authors}
       >
         <DetailsCard key={book.id} book={book} />
       </Modal>

@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-
-const url = "https://www.googleapis.com/books/v1/volumes?q=";
-const maxResults = "40";
+import useFetch from "./hooks/useFetch";
 
 const getLibrary = () => {
   if (
@@ -16,12 +14,15 @@ const getLibrary = () => {
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const [data, setData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
-  const [loading, setLoading] = useState(false);
   const [userId, setUserId] = useState();
   const [library, setLibrary] = useState(getLibrary());
   const [slice, setSlice] = useState(10);
+  const { fetchBooks, data, setData, loading, error } = useFetch(
+    searchValue,
+    library,
+    setSlice
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,31 +37,6 @@ const AppProvider = ({ children }) => {
   const handleRemoveFromLib = (e) => {
     const newLib = library.filter((element) => element.id !== e.id);
     setLibrary(newLib);
-  };
-
-  const fetchBooks = async () => {
-    setLoading(true);
-    setSlice(8);
-    try {
-      const response = await fetch(
-        `${url}+${searchValue}&maxResults=${maxResults}&key=AIzaSyAJHG4L-BIzTSK16ng9k0hrqqRE5zCFlQY`
-      );
-      const data = await response.json();
-      // filter if in library
-      const checkLib = await data.items.map((item) => {
-        const filtr = library?.find((element) => element.id === item.id);
-        if (filtr) {
-          return { ...item, library: true };
-        } else return { ...item, library: false };
-      });
-      setData(checkLib);
-
-      // setData(data.items);
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      console.log(error);
-    }
   };
 
   useEffect(() => {
@@ -87,7 +63,6 @@ const AppProvider = ({ children }) => {
         setSearchValue,
         handleSubmit,
         loading,
-        setLoading,
         userId,
         setUserId,
         library,

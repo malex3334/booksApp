@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 
 import { useGlobalContext } from "../context";
 
@@ -35,7 +35,7 @@ export default function BookList() {
         {data?.length > 0 ? (
           <ul className="books-list">
             {data.slice(0, slice).map((book, index) => {
-              return <BookCard book={book} index={index} key={book.id} />;
+              return <BookCard book={book} index={index} key={index} />;
             })}
           </ul>
         ) : (

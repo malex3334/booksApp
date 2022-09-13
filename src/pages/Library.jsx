@@ -14,7 +14,12 @@ export default function Library() {
           })}
         </ul>
       ) : (
-        <h3 className="no-list">No books to show</h3>
+        <h3
+          style={{ fontSize: "16px", fontWeight: "normal" }}
+          className="no-list"
+        >
+          Your library is empty, search for books to add...
+        </h3>
       )}
     </div>
   );

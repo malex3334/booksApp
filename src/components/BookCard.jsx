@@ -6,7 +6,7 @@ import DetailsCard from "./DetailsCard";
 
 export default function BookCard({ book, index }) {
   const [showDescription, setShowDescription] = useState(false);
-  const { handleAddToLib, handleRemoveFromLib } = useGlobalContext();
+  const { handleAddToLib, handleRemoveFromLib, library } = useGlobalContext();
   const { volumeInfo } = book;
   const [showDetails, setShowDetails] = useState(false);
 

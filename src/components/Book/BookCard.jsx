@@ -4,9 +4,9 @@ import { useGlobalContext } from "../../context";
 import Modal from "../Modal";
 import DetailsCard from "./DetailsCard";
 
-export default function BookCard({ book, index }) {
+export default function BookCard({ book }) {
   const [showDescription, setShowDescription] = useState(false);
-  const { handleAddToLib, handleRemoveFromLib, library } = useGlobalContext();
+  const { handleAddToLib, handleRemoveFromLib } = useGlobalContext();
   const { volumeInfo } = book;
   const [showDetails, setShowDetails] = useState(false);
 
@@ -80,6 +80,7 @@ export default function BookCard({ book, index }) {
       <div className="like-btn">
         {book.library ? (
           <button
+            data-testid="like"
             onClick={(e) => {
               handleRemoveFromLib(book);
             }}
